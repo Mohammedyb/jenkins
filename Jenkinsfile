@@ -3,13 +3,13 @@ pipeline {
         registry = 'mohammedyb/pmapi'
         dockerHubCreds = 'docker_hub'
         dockerImage = ''
-        deploymentFile = 'ProjectManagementAPI/k8s/deployment.yml'
+        deploymentFile = 'k8s/deployment.yml'
     }
     agent any
     stages {
         stage('Test') {
             when {
-                branch 'feature/*'
+                branch 'main'
             }
         steps {
             withMaven {
@@ -24,8 +24,8 @@ pipeline {
         }
         steps {
             withMaven {
-                sh 'mvn -f ProjectManagementAPI/pom.xml clean install'
-                sh 'mvn -f ProjectManagementAPI/pom.xml clean package -DskipTests'
+                sh 'mvn -f pom.xml clean install'
+                sh 'mvn -f pom.xml clean package -DskipTests'
             }
         }
     }
@@ -36,7 +36,7 @@ pipeline {
         steps {
             script {
                 echo "$registry:$currentBuild.number"
-                dockerImage = docker.build ("$registry", "-f ProjectManagementAPI/Dockerfile .")
+                dockerImage = docker.build ("$registry", "-f Dockerfile .")
             }
         }
     }
