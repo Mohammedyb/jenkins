@@ -1,0 +1,10 @@
+Jenkins runs in a Java Virtual Machine (JVM) running on current versions of Linux, Windows, macOS, and UNIX/BSD.
+
+// Update the repositories:
+
+sudo apt-get update
+
+// Install OpenJDK:
+
+sudo apt-get install openjdk-8-jdk
+
