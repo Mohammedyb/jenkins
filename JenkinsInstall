@@ -18,6 +18,8 @@ Follow the instructions on the screen to access the administrative password that
 
 Note that you might need to issue the sudo chmod 0755 name_of_dir command to access the file that contains the initial password.
 
+sudo chmod 0755 /var/lib/jenkins/secrets/initialAdminPassword
+
 // Install essential plugins
 
 Many of the features of Jenkins are implemented as plugins. Before opening Jenkins, you need to install a set of essential plugins that are required:
@@ -28,8 +30,15 @@ Create the first admin user by filling out the form on this screen, then click S
 
 $JENKINS_HOME directory
 
-JENKINS_HOME refers to the Jenkins home directory, located in the ~/.jenkins directory by default. This location is where all the important data for Jenkins and its build goes. By default, it can be set either as a system property or an environment variable and can be verified from the system config page.
+JENKINS_HOME refers to the Jenkins home directory, located in the ~/.jenkins directory by default. 
+This location is where all the important data for Jenkins and its build goes. 
+By default, it can be set either as a system property or an environment variable and can be verified from the system config page.
 
+ //Post-Installation wizard
+
+The post-installation wizard takes you through a few quick initial configuration steps that are required before you can view the Jenkins Home Page:
+
+    Bring up a web browser and go to the http://<myServer>:8080 URL. Replace <myServer> with the name of the system running Jenkins.
 
 //Install Jenkins upgrades
 
@@ -46,4 +55,24 @@ To install a Jenkins upgrade:
         On Linux systems, this is located in the /usr/share/jenkins directory by default.
 
     Restart Jenkins to apply the upgrade.
+    
+
+// Select Manage Jenkins  Global Tool Configuration to configure the tools used for Pipeline development.
+
+JDK
+
+Use the JDK section to define the JDK versions you need for your projects. You can define multiple versions for different projects.
+Name: openjdk8 
+
+Path: /usr/lib/jvm/java-8-openjdk-amd64
+
+Maven
+
+Use the Maven section to automatically install Maven.
+
+
+// Plugins 
+
+common plugins: https://www.opsera.io/blog/ace-your-devops-game-with-this-ultimate-list-of-plugins-in-jenkins
+
 
