@@ -8,3 +8,42 @@ sudo apt-get update
 
 sudo apt-get install openjdk-8-jdk
 
+// Jenkins install on Ubuntu
+
+https://pkg.jenkins.io/debian-stable/
+
+// Unlock Jenkins
+
+Follow the instructions on the screen to access the administrative password that was set:
+
+Note that you might need to issue the sudo chmod 0755 name_of_dir command to access the file that contains the initial password.
+
+// Install essential plugins
+
+Many of the features of Jenkins are implemented as plugins. Before opening Jenkins, you need to install a set of essential plugins that are required:
+
+// Create first admin user
+
+Create the first admin user by filling out the form on this screen, then click Save and Finish.
+
+$JENKINS_HOME directory
+
+JENKINS_HOME refers to the Jenkins home directory, located in the ~/.jenkins directory by default. This location is where all the important data for Jenkins and its build goes. By default, it can be set either as a system property or an environment variable and can be verified from the system config page.
+
+
+//Install Jenkins upgrades
+
+To install a Jenkins upgrade:
+
+    Right-click on changelog in the alert panel to open the changelog for this release. Read this to be aware of changes this upgrade could make to your system.
+
+    Click download to download the upgrade software.
+
+    Use the Manage Jenkins  Prepare for Shutdown link to initiate a graceful shutdown of Jenkins.
+
+    Replace the jenkins.war file on your system with the new file.
+
+        On Linux systems, this is located in the /usr/share/jenkins directory by default.
+
+    Restart Jenkins to apply the upgrade.
+
